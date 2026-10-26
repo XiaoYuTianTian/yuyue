@@ -12,6 +12,8 @@ and this project aims to follow [Semantic Versioning](https://semver.org/).
 - `config.local.properties.example` with `***` placeholders for all secrets.
 - This changelog for ongoing release hygiene.
 - Real-device README screenshots (Home / Calendar / Recall / Settings) from QA build on MIX 3.
+- MIT `LICENSE` (aligned with Longriver) and license badge on README.
+- README images under `docs/images/` with jsDelivr URLs for reliable GitHub rendering.
 
 ### Changed
 - Hardened `.gitignore` (APKs, evidence, models, secrets).
