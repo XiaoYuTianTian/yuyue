@@ -1,50 +1,41 @@
-# Yuyue · 语曰
+[English](README.md) · [中文](docs/README.zh-CN.md)
 
 <p align="center">
-  <img src="docs/assets/yuyue-logo.jpg" alt="Yuyue logo" width="128" />
+  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@main/docs/images/logo.jpg" width="128" alt="Yuyue">
 </p>
 
-<p align="center">
-  <strong>Speak a sentence. It lands on that day.</strong><br/>
-  A private, local-first voice diary for time — not a cloud notes app.
-</p>
+<h1 align="center">Yuyue · 语曰</h1>
+
+<p align="center">Speak a sentence. It lands on that day.<br>
+A private, local-first voice diary for time — not a cloud notes app.</p>
 
 <p align="center">
-  <a href="./README.md">English</a> · <a href="./README.zh-CN.md">中文</a>
+  <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-1f4e5f"></a>
+  <img alt="Android" src="https://img.shields.io/badge/Android-API%2029%2B-3D6B4F">
+  <img alt="Local-first" src="https://img.shields.io/badge/data-on%20device-9A6B4F">
 </p>
 
+**Yuyue** (语曰) is an Android app for writing a **private time diary by speaking**. AI is optional polish only. Your on-device database and backups are the source of truth.
+
 <p align="center">
-  <img src="docs/assets/yuyue-home.png" alt="Home — hold to speak" width="180" />
-  <img src="docs/assets/yuyue-time.png" alt="Time — calendar memory map" width="180" />
-  <img src="docs/assets/yuyue-recall.png" alt="Recall — find by voice or text" width="180" />
-  <img src="docs/assets/yuyue-vault.png" alt="Vault — settings & backup" width="180" />
+  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@main/docs/images/home.png" width="24%" alt="Home — hold to speak">
+  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@main/docs/images/time.png" width="24%" alt="Time — calendar memory map">
+  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@main/docs/images/recall.png" width="24%" alt="Recall — find by voice or text">
+  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@main/docs/images/vault.png" width="24%" alt="Settings — backup and workspaces">
 </p>
 
 <p align="center"><sub>Screenshots from a real device (QA build).</sub></p>
 
----
-
-## What it is
-
-**Yuyue** (语曰) is an Android app for writing a **private time diary by speaking**.
+## What you can do
 
 | Loop | Meaning |
 |------|---------|
-| **Capture** | Hold to speak, type, share photos — raw words persist on-device first |
+| **Capture** | Hold to speak, type, or share photos — raw words persist on-device first |
 | **Time** | Month calendar → day capsules → entry detail (fuzzy times like “about evening”) |
-| **Recall** | Ask in voice or text — local FTS / embeddings; hits are traceable to entry IDs |
+| **Recall** | Ask in voice or text — local FTS / embeddings; hits trace back to entry IDs |
+| **Vault** | App lock, YUY2 encrypted backup, trash, notebooks, export |
 
-AI is optional polish only. **Your on-device database and backups are the source of truth.** Model failure never invents or overwrites diary entries.
-
-Brand palette: **Paper · Ink · Moss · Clay**.
-
-## Screens
-
-| Home | Time | Recall | Vault |
-|------|------|--------|-------|
-| Voice orb first; today + recent | Memory map calendar | Dated recall nodes | Lock, YUY2 backup, export |
-
-Interactive HTML prototype (clickable): [`docs/rebuild/prototypes/index.html`](docs/rebuild/prototypes/index.html)
+Brand palette: **Paper · Ink · Moss · Clay**. Interactive HTML prototype: [`docs/rebuild/prototypes/index.html`](docs/rebuild/prototypes/index.html).
 
 ## Architecture (short)
 
@@ -60,16 +51,13 @@ Voice / Text / Photo / Share
   Optional cloud polish (non-blocking)
 ```
 
-- **Backup**: encrypted **YUY2** (salt + KDF in file header). Plain ZIP is labeled “unencrypted export”.
-- **Package**: personal `com.yuyue.app` · QA `com.yuyue.app.qa`
-
-## Quick Start
+## Quick start
 
 ### Requirements
 
-- Android Studio Ladybug+ (or equivalent) with JDK **17**
+- Android Studio (JDK **17**)
 - Android SDK **35**, device/emulator **API 29+**
-- Network once to download Vosk / BGE model assets on first build (cached under `android-app/src/main/assets/`, gitignored)
+- Network once on first build (Vosk / BGE models download into gitignored `assets/`)
 
 ### 1. Clone
 
@@ -78,49 +66,41 @@ git clone https://github.com/XiaoYuTianTian/yuyue.git
 cd yuyue
 ```
 
-### 2. Configure secrets (required template)
+### 2. Configure secrets
 
 ```bash
 cp config.local.properties.example config.local.properties
 ```
 
-Edit `config.local.properties` — replace every `***`:
+Edit `config.local.properties` and replace every `***`:
 
 | Key | Required? | Purpose |
 |-----|-----------|---------|
-| `LLM_API_KEY` | Optional | MiniMax (or OpenAI-compatible) key for polish |
+| `LLM_API_KEY` | Optional | MiniMax (or OpenAI-compatible) polish key |
 | `LLM_BASE_URL` | Optional | Default `https://api.minimaxi.com` |
 | `LLM_MODEL` | Optional | Default `MiniMax-M2.7` |
-| `SILICONFLOW_API_KEY` | Optional | Fast extract; leave `***` / empty to skip |
-| `JWT_SECRET` | Only if running legacy `server/` | Dev secret |
+| `SILICONFLOW_API_KEY` | Optional | Fast extract; leave empty / `***` to skip |
+| `JWT_SECRET` | Only for legacy `server/` | Dev secret |
 
-> Keys are injected into `BuildConfig` at compile time and **must not** be committed.  
-> The app **runs offline** for capture / calendar / local recall without any API key.
+Keys are injected into `BuildConfig` at compile time and **must not** be committed.  
+The app **runs offline** for capture / calendar / local recall without any API key.
 
 ### 3. Open & run
 
-1. Android Studio → **Open** the repo root (not only `android-app/`).
-2. Select run configuration **`android-app`** (debug) or the **`qa`** build type for `com.yuyue.app.qa`.
-3. Run on emulator or device. First launch creates default notebooks.
+1. Android Studio → **Open** the repo root.
+2. Run configuration **`android-app`** (or build type **`qa`** → `com.yuyue.app.qa`).
+3. First launch creates default notebooks.
 
 ```bash
-# CLI alternative (Windows)
 .\gradlew.bat :android-app:installDebug
-# or QA package
 .\gradlew.bat :android-app:installQa
 ```
 
 ### 4. Smoke check
 
-1. Hold the moss voice orb → say something → confirm preview → entry appears under **Time**.
+1. Hold the voice orb → speak → confirm → mark appears under **Time**.
 2. Turn off network → capture again → raw text still saves.
-3. **Vault** → set backup passphrase → encrypted YUY2 export.
-
-## Configuration notes
-
-- Never put real keys in README, commits, or screenshots.
-- Release builds clear `DEFAULT_LLM_API_KEY` / `SILICONFLOW_API_KEY` in `build.gradle.kts`.
-- `local.properties` (SDK path) is machine-local and gitignored.
+3. **Settings** → set backup passphrase → export YUY2.
 
 ## Docs
 
@@ -130,21 +110,19 @@ Edit `config.local.properties` — replace every `***`:
 | [Product contract](./docs/rebuild/product-contract.md) | Trust / privacy red lines |
 | [Legacy data contract](./docs/rebuild/legacy-data-contract.md) | Room v7 / backup formats |
 | [Offline decrypt](./docs/offline-decrypt.md) | YUY2 / YUY1 offline recovery |
-| [Rebuild complete](./docs/rebuild/REBUILD-COMPLETE.md) | Rebuild status & remaining device gates |
+| [Rebuild complete](./docs/rebuild/REBUILD-COMPLETE.md) | Rebuild status & device gates |
 | [Chinese setup guide](./docs/本机运行调试指南.md) | Detailed local debug (ZH) |
 
 ## Security
 
-Before publishing or forking:
-
-1. Confirm `config.local.properties` is **not** in git (`git status`).
+1. Keep `config.local.properties` out of git.
 2. Rotate any key that ever appeared in chat, screenshots, or old forks.
 3. Do not commit `docs/testing/evidence/` (may contain personal diary samples).
 
 ## License
 
-No license file is attached yet — treat as **source-available / all rights reserved** until the author adds one. Ask before commercial use.
+[MIT](LICENSE) © 2026 XiaoYuTianTian
 
 ## Changelog policy
 
-Every meaningful change should add an entry to [`CHANGELOG.md`](./CHANGELOG.md) (Keep a Changelog style). Tag releases as `vMAJOR.MINOR.PATCH`.
+Every meaningful change should add an entry to [`CHANGELOG.md`](./CHANGELOG.md) (Keep a Changelog). Tag releases as `vMAJOR.MINOR.PATCH`.
