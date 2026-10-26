@@ -1,7 +1,7 @@
 [English](README.md) · [中文](docs/README.zh-CN.md)
 
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@main/docs/images/logo.jpg" width="128" alt="Yuyue">
+  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@7d37ec2189d451f7305a670d9174e8ca15334990/docs/images/logo.jpg" width="128" alt="Yuyue">
 </p>
 
 <h1 align="center">Yuyue · 语曰</h1>
@@ -18,10 +18,10 @@ A private, local-first voice diary for time — not a cloud notes app.</p>
 **Yuyue** (语曰) is an Android app for writing a **private time diary by speaking**. AI is optional polish only. Your on-device database and backups are the source of truth.
 
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@main/docs/images/home.png" width="24%" alt="Home — hold to speak">
-  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@main/docs/images/time.png" width="24%" alt="Time — calendar memory map">
-  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@main/docs/images/recall.png" width="24%" alt="Recall — find by voice or text">
-  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@main/docs/images/vault.png" width="24%" alt="Settings — backup and workspaces">
+  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@7d37ec2189d451f7305a670d9174e8ca15334990/docs/images/home.png" width="24%" alt="Home — hold to speak">
+  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@7d37ec2189d451f7305a670d9174e8ca15334990/docs/images/time.png" width="24%" alt="Time — calendar memory map">
+  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@7d37ec2189d451f7305a670d9174e8ca15334990/docs/images/recall.png" width="24%" alt="Recall — find by voice or text">
+  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@7d37ec2189d451f7305a670d9174e8ca15334990/docs/images/vault.png" width="24%" alt="Settings — backup and workspaces">
 </p>
 
 <p align="center"><sub>Screenshots from a real device (QA build).</sub></p>
