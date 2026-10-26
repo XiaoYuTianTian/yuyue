@@ -38,7 +38,7 @@ android-app/release/
 # Test evidence that may contain personal diary content
 docs/testing/evidence/
 docs/testing/results.jsonl
-
+docs/assets/device/
 # Agent / editor scratch
 agent-transcripts/
 .cursor/

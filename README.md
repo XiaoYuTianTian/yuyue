@@ -14,11 +14,13 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/yuyue-home.jpg" alt="Home — hold to speak" width="180" />
-  <img src="docs/assets/yuyue-time.jpg" alt="Time — calendar memory map" width="180" />
-  <img src="docs/assets/yuyue-recall.jpg" alt="Recall — find by voice or text" width="180" />
-  <img src="docs/assets/yuyue-vault.jpg" alt="Vault — lock and encrypted backup" width="180" />
+  <img src="docs/assets/yuyue-home.png" alt="Home — hold to speak" width="180" />
+  <img src="docs/assets/yuyue-time.png" alt="Time — calendar memory map" width="180" />
+  <img src="docs/assets/yuyue-recall.png" alt="Recall — find by voice or text" width="180" />
+  <img src="docs/assets/yuyue-vault.png" alt="Vault — settings & backup" width="180" />
 </p>
+
+<p align="center"><sub>Screenshots from a real device (QA build).</sub></p>
 
 ---
 

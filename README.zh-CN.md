@@ -14,11 +14,13 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/yuyue-home.jpg" alt="首页 · 按住说" width="180" />
-  <img src="docs/assets/yuyue-time.jpg" alt="时间 · 月历记忆地图" width="180" />
-  <img src="docs/assets/yuyue-recall.jpg" alt="回忆 · 语音或文字查找" width="180" />
-  <img src="docs/assets/yuyue-vault.jpg" alt="保险柜 · 锁与加密备份" width="180" />
+  <img src="docs/assets/yuyue-home.png" alt="首页 · 按住说" width="180" />
+  <img src="docs/assets/yuyue-time.png" alt="时间 · 月历记忆地图" width="180" />
+  <img src="docs/assets/yuyue-recall.png" alt="回忆 · 语音或文字查找" width="180" />
+  <img src="docs/assets/yuyue-vault.png" alt="设置 · 备份与工作区" width="180" />
 </p>
+
+<p align="center"><sub>真机截图（QA 包）。</sub></p>
 
 ---
 

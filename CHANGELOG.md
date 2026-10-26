@@ -11,10 +11,12 @@ and this project aims to follow [Semantic Versioning](https://semver.org/).
 - Public GitHub presence: bilingual README (EN / 中文), brand logo, product UI imagery.
 - `config.local.properties.example` with `***` placeholders for all secrets.
 - This changelog for ongoing release hygiene.
+- Real-device README screenshots (Home / Calendar / Recall / Settings) from QA build on MIX 3.
 
 ### Changed
 - Hardened `.gitignore` (APKs, evidence, models, secrets).
 - Legacy `API_BASE_URL` no longer hardcodes a private LAN IP; reads from local config with emulator default.
+- README hero gallery now prefers on-device PNGs over rendered mockups.
 
 ### Security
 - Documented that real API keys must live only in gitignored `config.local.properties`.
