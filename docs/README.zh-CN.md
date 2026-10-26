@@ -1,7 +1,7 @@
 [English](../README.md) · [中文](README.zh-CN.md)
 
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@main/docs/images/logo.jpg" width="128" alt="语曰">
+  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@7d37ec2189d451f7305a670d9174e8ca15334990/docs/images/logo.jpg" width="128" alt="语曰">
 </p>
 
 <h1 align="center">语曰 · Yuyue</h1>
@@ -18,10 +18,10 @@
 **语曰**是一款 Android 应用：用说话写下私人时间日记。AI 只做可选润色；**本机数据库与备份是权威**。
 
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@main/docs/images/home.png" width="24%" alt="首页 · 按住说">
-  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@main/docs/images/time.png" width="24%" alt="时间 · 月历">
-  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@main/docs/images/recall.png" width="24%" alt="回忆 · 搜索">
-  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@main/docs/images/vault.png" width="24%" alt="设置 · 备份">
+  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@7d37ec2189d451f7305a670d9174e8ca15334990/docs/images/home.png" width="24%" alt="首页 · 按住说">
+  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@7d37ec2189d451f7305a670d9174e8ca15334990/docs/images/time.png" width="24%" alt="时间 · 月历">
+  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@7d37ec2189d451f7305a670d9174e8ca15334990/docs/images/recall.png" width="24%" alt="回忆 · 搜索">
+  <img src="https://cdn.jsdelivr.net/gh/XiaoYuTianTian/yuyue@7d37ec2189d451f7305a670d9174e8ca15334990/docs/images/vault.png" width="24%" alt="设置 · 备份">
 </p>
 
 <p align="center"><sub>真机截图（QA 包）。</sub></p>
