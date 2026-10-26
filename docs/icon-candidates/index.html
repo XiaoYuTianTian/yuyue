@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>语曰图标候选</title>
+  <style>
+    :root { color-scheme: dark; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #0b0f14;
+      color: #e8eef4;
+    }
+    header {
+      padding: 28px 24px 8px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    h1 { font-size: 28px; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.4px; }
+    p { color: #8b9bb4; margin: 0; line-height: 1.5; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 24px;
+      max-width: 1100px;
+      margin: 0 auto 48px;
+    }
+    .card {
+      background: #141a22;
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+    }
+    .card img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: contain;
+      border-radius: 28px;
+      background: #070a0e;
+    }
+    .id {
+      margin-top: 12px;
+      font-size: 20px;
+      font-weight: 650;
+      color: #2ee6a6;
+    }
+    .name { margin-top: 4px; font-size: 14px; color: #8b9bb4; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>语曰图标候选</h1>
+    <p>回聊天里说一个编号（例如 H 或 J），我就改成正式图标。当前安装里用的是「现在：麦克风」。</p>
+  </header>
+  <div class="grid">
+    <article class="card">
+      <img src="00-current-mic.png" alt="现在：麦克风" />
+      <div class="id">现在</div>
+      <div class="name">青底麦克风（已装进 App）</div>
+    </article>
+    <article class="card">
+      <img src="A-waveform.png" alt="A 声波条" />
+      <div class="id">A</div>
+      <div class="name">藏青底 · 声波条</div>
+    </article>
+    <article class="card">
+      <img src="B-sonar.png" alt="B 声呐" />
+      <div class="id">B</div>
+      <div class="name">藏青底 · 声呐</div>
+    </article>
+    <article class="card">
+      <img src="C-bubble.png" alt="C 方气泡" />
+      <div class="id">C</div>
+      <div class="name">方气泡 + 波形</div>
+    </article>
+    <article class="card">
+      <img src="D-voiceprint.png" alt="D 语音条" />
+      <div class="id">D</div>
+      <div class="name">藏青底 · 语音条</div>
+    </article>
+    <article class="card">
+      <img src="E-comma.png" alt="E 逗号" />
+      <div class="id">E</div>
+      <div class="name">逗号 / 口吻</div>
+    </article>
+    <article class="card">
+      <img src="F-rings.png" alt="F 听环" />
+      <div class="id">F</div>
+      <div class="name">听环 / 语音球</div>
+    </article>
+    <article class="card">
+      <img src="G-daywave.png" alt="G 日历圆" />
+      <div class="id">G</div>
+      <div class="name">日历圆（带数字，偏噪）</div>
+    </article>
+    <article class="card">
+      <img src="H-cyan-bars.png" alt="H 青底声波" />
+      <div class="id">H</div>
+      <div class="name">青底 · 声波条</div>
+    </article>
+    <article class="card">
+      <img src="I-stroke.png" alt="I 一笔画" />
+      <div class="id">I</div>
+      <div class="name">一笔画波形</div>
+    </article>
+    <article class="card">
+      <img src="J-quotes.png" alt="J 引号" />
+      <div class="id">J</div>
+      <div class="name">引号 · 语曰</div>
+    </article>
+    <article class="card">
+      <img src="K-balloon.png" alt="K 圆气泡" />
+      <div class="id">K</div>
+      <div class="name">圆气泡 + 声波</div>
+    </article>
+    <article class="card">
+      <img src="L-drop.png" alt="L 水滴" />
+      <div class="id">L</div>
+      <div class="name">水滴钉</div>
+    </article>
+    <article class="card">
+      <img src="M-cyan-sonar.png" alt="M 青底声呐" />
+      <div class="id">M</div>
+      <div class="name">青底 · 声呐</div>
+    </article>
+  </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+# Gradle / IDE
+.gradle/
+build/
+.idea/
+*.iml
+.externalNativeBuild/
+captures/
+.DS_Store
+
+# Secrets & local machine config (NEVER commit)
+local.properties
+config.local.properties
+**/config.local.properties
+server/config.local.properties
+*.jks
+*.keystore
+*.pem
+*.p12
+.env
+.env.*
+
+# Runtime / personal data
+data/
+*.h2.db
+*.h2.db.mv.db
+*.lock.db
+
+# Large / downloaded model assets (fetched on first build)
+android-app/src/main/assets/vosk-model-small-cn-0.22.zip
+android-app/src/main/assets/bge-small-zh-v1.5/
+
+# Build products
+*.apk
+*.aab
+*.ap_
+android-app/release/
+
+# Test evidence that may contain personal diary content
+docs/testing/evidence/
+docs/testing/results.jsonl
+
+# Agent / editor scratch
+agent-transcripts/
+.cursor/
+.kotlin/
+.superpowers/
+
+# Local run logs
+*.log
+emulator-*.log
+emulator-*.err.log
+
+.tools/
+
+
+.tools/
+.github/workflows/

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">语曰</string>
+    <string name="shortcut_capture">记下</string>
+    <string name="shortcut_capture_long">打开语曰记下此刻</string>
+    <string name="mic_permission_rationale">录音只在本机转成文字，用来记下你说的话。</string>
+    <string name="widget_capture_title">按住记下</string>
+    <string name="widget_capture_subtitle">打开语音球</string>
+    <string name="widget_capture_description">一键打开语曰语音采集</string>
+    <string name="on_this_day_channel">那年今日</string>
+</resources>

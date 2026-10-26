@@ -1,0 +1,21 @@
+# Local secrets — copy to config.local.properties (gitignored)
+# Replace *** with your own values. Never commit real keys.
+
+PORT=8080
+DEV_MODE=true
+JWT_SECRET=***
+
+# Optional cloud polish (MiniMax CN). App works offline without these.
+LLM_API_KEY=***
+LLM_BASE_URL=https://api.minimaxi.com
+LLM_MODEL=MiniMax-M2.7
+
+# Optional fast extract (SiliconFlow). Leave blank to skip.
+SILICONFLOW_API_KEY=***
+FAST_LLM_BASE_URL=https://api.siliconflow.cn
+FAST_LLM_MODEL=Qwen/Qwen2.5-7B-Instruct
+
+# Optional legacy server DB (not required for the Android local-first path)
+# DATABASE_URL=jdbc:h2:file:./data/yuyue;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH
+# DATABASE_USER=sa
+# DATABASE_PASSWORD=***

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 语曰品牌：声波动画条，用于欢迎页等浅/深底均可 tint。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#12D6A8"
+        android:pathData="M35,49 A3.5,3.5 0 0 1 42,49 L42,59 A3.5,3.5 0 0 1 35,59 Z" />
+    <path
+        android:fillColor="#12D6A8"
+        android:pathData="M45.5,42 A3.5,3.5 0 0 1 52.5,42 L52.5,66 A3.5,3.5 0 0 1 45.5,66 Z" />
+    <path
+        android:fillColor="#12D6A8"
+        android:pathData="M56,52 A3.5,3.5 0 0 1 63,52 L63,56 A3.5,3.5 0 0 1 56,56 Z" />
+    <path
+        android:fillColor="#12D6A8"
+        android:pathData="M66.5,46 A3.5,3.5 0 0 1 73.5,46 L73.5,62 A3.5,3.5 0 0 1 66.5,62 Z" />
+</vector>

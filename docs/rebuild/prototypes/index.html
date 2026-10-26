@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>语曰 · 纸墨苔陶原型</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;600&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #EEF1EC;
+      --paper-raised: #F7F8F5;
+      --paper-dim: #E2E6DF;
+      --ink: #1A1F1C;
+      --ink-soft: #3D463F;
+      --ink-mute: #6B746C;
+      --moss: #3F6B52;
+      --moss-deep: #2B4A38;
+      --moss-mist: #D7E5DB;
+      --clay: #9A6B4F;
+      --clay-mist: #F0E4DA;
+      --hazard: #B54A3C;
+      --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      --serif: "Noto Serif SC", "Songti SC", serif;
+      --sans: "Noto Sans SC", "PingFang SC", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; background: #1a1f1c; color: var(--ink); font-family: var(--sans); }
+    body { display: grid; place-items: center; padding: 16px; }
+    .phone {
+      width: min(390px, 100%);
+      height: min(780px, 92vh);
+      background: var(--paper) var(--grain);
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 24px 80px rgba(0,0,0,.45);
+      display: flex; flex-direction: column;
+    }
+    .status { height: 28px; padding: 8px 20px 0; font-size: 11px; color: var(--ink-mute); display: flex; justify-content: space-between; }
+    .screen { display: none; flex: 1; flex-direction: column; padding: 8px 20px 20px; overflow: auto; }
+    .screen.active { display: flex; animation: rise .45s ease; }
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+    @keyframes inkIn { from { opacity: 0; filter: blur(4px); } to { opacity: 1; filter: none; } }
+    h1, h2 { font-family: var(--serif); font-weight: 600; margin: 0; letter-spacing: -.02em; }
+    h1 { font-size: 30px; line-height: 1.25; }
+    h2 { font-size: 22px; }
+    p { color: var(--ink-soft); line-height: 1.55; margin: 8px 0 0; }
+    .brand { font-family: var(--serif); font-size: 36px; color: var(--ink); margin-top: 48px; }
+    .muted { color: var(--ink-mute); font-size: 13px; }
+    .cta {
+      margin-top: auto; border: 0; background: var(--moss); color: #fff;
+      padding: 14px 20px; border-radius: 14px; font: 500 15px var(--sans); cursor: pointer;
+      transition: transform .15s ease, background .15s;
+    }
+    .cta:active { transform: scale(.97); background: var(--moss-deep); }
+    .cta.ghost { background: transparent; color: var(--moss); border: 1px solid var(--moss); }
+    .orb {
+      width: 112px; height: 112px; border-radius: 50%; margin: 40px auto 12px;
+      background: radial-gradient(circle at 35% 30%, #7fad90, var(--moss) 55%, var(--moss-deep));
+      box-shadow: 0 12px 32px rgba(63,107,82,.35);
+      display: grid; place-items: center; color: #fff; font-size: 13px; user-select: none;
+      touch-action: none;
+    }
+    .orb.holding { animation: pulse .9s ease infinite; }
+    .preview {
+      background: var(--paper-raised); border: 1px solid var(--paper-dim);
+      border-radius: 14px; padding: 14px 16px; margin-top: 16px; animation: inkIn .5s ease;
+    }
+    .nav { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+    .chip {
+      border: 1px solid var(--paper-dim); background: var(--paper-raised); color: var(--ink-soft);
+      border-radius: 999px; padding: 6px 12px; font-size: 12px; cursor: pointer;
+    }
+    .chip.on { background: var(--moss-mist); color: var(--moss-deep); border-color: transparent; }
+    .cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin-top: 20px; }
+    .cal span { aspect-ratio: 1; display: grid; place-items: center; border-radius: 10px; font-size: 13px; cursor: pointer; }
+    .cal span.has { background: var(--moss-mist); color: var(--moss-deep); font-weight: 600; }
+    .cal span.sel { background: var(--moss); color: #fff; }
+    .capsule {
+      display: flex; gap: 12px; align-items: flex-start; padding: 12px 0;
+      border-bottom: 1px solid var(--paper-dim); cursor: pointer;
+    }
+    .time { width: 52px; color: var(--ink-mute); font-size: 12px; padding-top: 2px; }
+    .capsule b { font-family: var(--serif); font-weight: 600; font-size: 16px; }
+    .line { height: 2px; background: linear-gradient(90deg, var(--moss), transparent); margin: 8px 0 16px; border-radius: 2px; transform-origin: left; animation: rise .6s ease; }
+    .recall-node { padding: 10px 0; border-left: 2px solid var(--moss); padding-left: 14px; margin-left: 6px; animation: inkIn .4s ease; }
+    .vault-card {
+      background: var(--paper-raised); border-radius: 16px; padding: 16px; margin-top: 12px;
+      border: 1px solid var(--paper-dim);
+    }
+    .ok { color: var(--moss-deep); font-weight: 600; }
+    .tabs {
+      display: flex; gap: 4px; padding: 10px 12px 14px; border-top: 1px solid var(--paper-dim);
+      background: color-mix(in srgb, var(--paper-raised) 92%, transparent); backdrop-filter: blur(8px);
+    }
+    .tabs button {
+      flex: 1; border: 0; background: transparent; padding: 8px 4px; border-radius: 10px;
+      color: var(--ink-mute); font: 500 11px var(--sans); cursor: pointer;
+    }
+    .tabs button.on { color: var(--moss-deep); background: var(--moss-mist); }
+    .hero-space { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  </style>
+</head>
+<body>
+  <div class="phone" id="app">
+    <div class="status"><span>9:41</span><span>语曰 QA</span></div>
+
+    <!-- 1 Onboarding -->
+    <section class="screen active" data-screen="onboarding">
+      <div class="hero-space">
+        <div class="brand">语曰</div>
+        <p>用说话写的私人时间日记</p>
+        <p class="muted" style="margin-top:20px">按住说一句真实的话。我们会先预览，再落到今天。</p>
+      </div>
+      <button class="cta" data-go="hold">按住试说一句</button>
+    </section>
+
+    <!-- 2 Hold + preview -->
+    <section class="screen" data-screen="hold">
+      <h2>今天</h2>
+      <p class="muted">按住球体说话，松手预览</p>
+      <div class="orb" id="orb" aria-label="按住说话">按住</div>
+      <p class="muted" id="holdHint" style="text-align:center">轻按不生效 · 按住才算</p>
+      <div class="preview" id="preview" hidden>
+        <div class="muted">约晚上 · 今天</div>
+        <b style="font-family:var(--serif);font-size:18px;display:block;margin-top:6px">和阿哲在巷口吃了碗面</b>
+        <p style="margin-top:6px">原话会保留。确认后写入本机。</p>
+        <div class="nav">
+          <button class="cta" style="flex:1" data-go="home">写入今天</button>
+          <button class="cta ghost" style="flex:1" id="redo">重说</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 Home shell -->
+    <section class="screen" data-screen="home">
+      <h2>语曰</h2>
+      <p class="muted">今天 · 1 条已落轴</p>
+      <div class="preview" style="margin-top:24px">
+        <div class="muted">约晚上</div>
+        <b style="font-family:var(--serif);font-size:17px;display:block;margin-top:4px">和阿哲在巷口吃了碗面</b>
+      </div>
+      <div class="orb" style="margin-top:auto;margin-bottom:8px" data-go="hold">再说</div>
+    </section>
+
+    <!-- 4 Time / calendar -->
+    <section class="screen" data-screen="time">
+      <h2>九月</h2>
+      <p class="muted">点有记忆的日子</p>
+      <div class="cal" id="cal"></div>
+      <div id="dayList" hidden>
+        <h2 style="margin-top:20px;font-size:18px" id="dayTitle">9 月 20 日</h2>
+        <div class="line"></div>
+        <div class="capsule" data-go="entry">
+          <div class="time">约晚上</div>
+          <div><b>巷口的面</b><div class="muted">和阿哲</div></div>
+        </div>
+        <div class="capsule">
+          <div class="time">下午</div>
+          <div><b>图书馆靠窗</b><div class="muted">看完半本</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 Entry -->
+    <section class="screen" data-screen="entry">
+      <button class="chip" data-go="time">← 当天</button>
+      <p class="muted" style="margin-top:16px">2026-09-20 · 约晚上</p>
+      <h1 style="margin-top:8px">巷口的面</h1>
+      <p style="animation:inkIn .5s ease">和阿哲在巷口吃了碗面。汤很烫，风有点凉。</p>
+      <p class="muted" style="margin-top:20px">原话</p>
+      <div class="preview">和阿哲在巷口吃了碗面</div>
+    </section>
+
+    <!-- 6 Recall -->
+    <section class="screen" data-screen="recall">
+      <h2>回忆</h2>
+      <p class="muted">说说要找的事，或点下面的问法</p>
+      <div class="nav" style="margin-top:16px">
+        <button class="chip" id="askFace">我和阿哲</button>
+        <button class="chip" id="askPlace">巷口</button>
+      </div>
+      <div id="recallOut" hidden>
+        <div class="line"></div>
+        <div class="recall-node">
+          <div class="muted">2026-09-20 · 约晚上</div>
+          <b style="font-family:var(--serif)">巷口的面</b>
+        </div>
+        <div class="recall-node" style="animation-delay:.1s">
+          <div class="muted">2026-08-03 · 下午</div>
+          <b style="font-family:var(--serif)">阿哲来借伞</b>
+        </div>
+      </div>
+      <div class="orb" style="margin-top:auto" id="recallOrb">按住问</div>
+    </section>
+
+    <!-- 7 Vault / backup -->
+    <section class="screen" data-screen="vault">
+      <h2>保险柜</h2>
+      <p class="muted">备份与恢复 · 本机优先</p>
+      <div class="vault-card">
+        <div>加密备份</div>
+        <p class="muted">最近成功 · 今天 18:02 · 校验通过</p>
+        <button class="cta" style="margin-top:14px;width:100%" id="previewBackup">试恢复（不写入）</button>
+      </div>
+      <div class="vault-card" id="restorePreview" hidden>
+        <div class="ok">预览通过</div>
+        <p class="muted">42 条日记 · 11 张照片 · checksum OK</p>
+        <p class="muted">Room 证据优先于界面文案。确认后才写入。</p>
+        <button class="cta ghost" style="margin-top:12px;width:100%" data-go="home">返回</button>
+      </div>
+    </section>
+
+    <nav class="tabs">
+      <button data-tab="home" class="on">首页</button>
+      <button data-tab="time">时间</button>
+      <button data-tab="recall">回忆</button>
+      <button data-tab="vault">保险柜</button>
+    </nav>
+  </div>
+  <script>
+    const app = document.getElementById('app');
+    const show = (name) => {
+      document.querySelectorAll('.screen').forEach(s => s.classList.toggle('active', s.dataset.screen === name));
+      document.querySelectorAll('.tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === name));
+      if (['onboarding','hold','entry'].includes(name)) {
+        document.querySelector('.tabs').style.visibility = name === 'entry' ? 'hidden' : 'hidden';
+      } else {
+        document.querySelector('.tabs').style.visibility = 'visible';
+      }
+    };
+    document.querySelectorAll('[data-go]').forEach(el => el.addEventListener('click', () => show(el.dataset.go)));
+    document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => show(b.dataset.tab)));
+
+    const orb = document.getElementById('orb');
+    const preview = document.getElementById('preview');
+    const holdHint = document.getElementById('holdHint');
+    let holdTimer;
+    const startHold = (e) => {
+      e.preventDefault();
+      orb.classList.add('holding');
+      orb.textContent = '聆听';
+      holdHint.textContent = '继续按住…';
+      holdTimer = setTimeout(() => {}, 100);
+    };
+    const endHold = () => {
+      orb.classList.remove('holding');
+      orb.textContent = '按住';
+      preview.hidden = false;
+      holdHint.textContent = '已识别，请确认';
+    };
+    orb.addEventListener('pointerdown', startHold);
+    orb.addEventListener('pointerup', endHold);
+    orb.addEventListener('pointerleave', () => orb.classList.remove('holding'));
+    document.getElementById('redo').addEventListener('click', () => { preview.hidden = true; holdHint.textContent = '轻按不生效 · 按住才算'; });
+
+    const cal = document.getElementById('cal');
+    for (let i = 1; i <= 30; i++) {
+      const s = document.createElement('span');
+      s.textContent = i;
+      if ([3, 12, 20].includes(i)) s.classList.add('has');
+      s.addEventListener('click', () => {
+        cal.querySelectorAll('span').forEach(x => x.classList.remove('sel'));
+        s.classList.add('sel');
+        document.getElementById('dayList').hidden = false;
+        document.getElementById('dayTitle').textContent = `9 月 ${i} 日`;
+      });
+      cal.appendChild(s);
+    }
+
+    const revealRecall = () => { document.getElementById('recallOut').hidden = false; };
+    document.getElementById('askFace').addEventListener('click', revealRecall);
+    document.getElementById('askPlace').addEventListener('click', revealRecall);
+    document.getElementById('recallOrb').addEventListener('pointerup', revealRecall);
+    document.getElementById('previewBackup').addEventListener('click', () => {
+      document.getElementById('restorePreview').hidden = false;
+    });
+  </script>
+</body>
+</html>

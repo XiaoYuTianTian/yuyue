@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <include domain="file" path="encrypted-backups/" />
+    <exclude domain="database" />
+    <exclude domain="sharedpref" path="yuyue_ai_secure.xml" />
+    <exclude domain="sharedpref" path="yuyue_backup_secure.xml" />
+    <exclude domain="sharedpref" path="yuyue_lock_secure.xml" />
+</full-backup-content>

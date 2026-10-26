@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <cloud-backup>
+        <include domain="file" path="encrypted-backups/" />
+        <exclude domain="database" />
+        <exclude domain="sharedpref" path="yuyue_ai_secure.xml" />
+        <exclude domain="sharedpref" path="yuyue_backup_secure.xml" />
+        <exclude domain="sharedpref" path="yuyue_lock_secure.xml" />
+        <exclude domain="file" path="bge-small-zh-v1.5/" />
+        <exclude domain="file" path="vosk/" />
+    </cloud-backup>
+    <device-transfer>
+        <include domain="file" path="encrypted-backups/" />
+        <exclude domain="database" />
+        <exclude domain="sharedpref" path="yuyue_ai_secure.xml" />
+        <exclude domain="sharedpref" path="yuyue_backup_secure.xml" />
+        <exclude domain="sharedpref" path="yuyue_lock_secure.xml" />
+    </device-transfer>
+</data-extraction-rules>
